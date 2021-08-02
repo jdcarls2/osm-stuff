@@ -1,0 +1,28 @@
+areas:
+generalized_tables:
+  # might be useful, but look into it. maybe just copy default
+tables:
+  # this is a work in progress! we'll go through each and look at the wiki / taginfo to see what we might *possibly* want to map; use hstore when necessary
+  roads: # get all motorized traffic ways for mapping: names, maxspeed, width, material
+  road-areas: # include polygons of highway:area?
+  rail: # basic, but w/ types to distinguish amtracks from subways
+  road-routes: # ref, network, etc
+  rail-routes: # ref, network, etc. color? include stops
+  bus-routes: # ref, network. include stops
+  # maybe the transit routes could be all in one?
+  transport-areas: # platforms
+  paths: # footways, cycleways, paths, steps
+  cycling: # cycleways and also all ways w/ cycleway lane tagging, bicycle access tags, etc. include "no" to indicate bad routes for biking
+  kerbs: # type, tactile paving, incline, wheelchair
+  foraging: # any areas w/ foraging tag
+  plants: # natural=tree/shrub/plant; taxon, wikidata, foraging tags
+  amenities: # just all of them as POIs
+  tourism: # any kind of attraction, esp. lodging and fun stuff
+  places: # label points of populated places, just copy from default YAML
+  water: # natural=water, water=*, areas. also basin and intermittent tags, name
+  waterways: # rivers, streams, canals, ditches. names
+  boundaries: # all admin boundaries w/ level, name, etc
+  buildings: # building tag
+  landuse: # a mix of landuse areas and amenities like schools
+  natural: # landcover and non-landuse-y stuff like woods, grassland, wetland
+  parks: # nature reserves, playgrounds, parks, gardens
