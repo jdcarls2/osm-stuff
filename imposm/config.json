@@ -1,5 +1,0 @@
-{
-    "cachedir": "./imposm_cache",
-    "connection": "postgis://osm:osm@localhost/osm",
-    "mapping": "mapping.yml"
-}

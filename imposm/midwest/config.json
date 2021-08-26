@@ -1,0 +1,8 @@
+{
+    "cachedir": "../midwest/imposm_cache",
+    "connection": "postgis://osm:osm@localhost/osm?prefix=midwest",
+    "mapping": "../midwest/mapping.yml",
+    "diffdir": "../midwest/imposm_diff",
+    "replication_url": "https://download.geofabrik.de/north-america/us-midwest-updates/",
+    "replication_interval": "24h"
+}
