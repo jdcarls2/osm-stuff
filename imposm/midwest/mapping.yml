@@ -380,7 +380,7 @@ tables:
     mapping:
       amenity: [__any__]
       tourism: [__any__]
-      shop: [__any__]any
+      shop: [__any__]
     type: point
   places:
     columns:
