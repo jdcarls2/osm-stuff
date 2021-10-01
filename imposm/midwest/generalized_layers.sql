@@ -2,17 +2,17 @@
 
 -- Routes, merged by ref/network
 
-DROP TABLE IF EXISTS midwest_mergedroutes_gen50;
+DROP TABLE IF EXISTS midwest_mergedroutes;
 
-CREATE TABLE midwest_mergedroutes_gen50 (
+CREATE TABLE midwest_mergedroutes (
 	id SERIAL PRIMARY KEY,
 	ref VARCHAR,
 	network VARCHAR,
-	route_type VARCHAR,
+	route_type VARCHAR
 );
 
 SELECT AddGeometryColumn('public'::varchar,
-						 'midwest_roadroutes_gen50'::varchar,
+						 'midwest_mergedroutes'::varchar,
 						 'geometry'::varchar,
 						 3857,
 						 'GEOMETRY'::varchar,
@@ -24,19 +24,19 @@ WITH a AS(
 	SELECT   ref,
 			 network,
 			 type,
-			 st_simplifypreservetopology(st_collect(geometry), 50) AS geometry
+			 st_collect(geometry) AS geometry
 	FROM     midwest_routes
 	WHERE    ref <> '' and network <> ''
 	GROUP BY network, ref, type
 )
 
-INSERT INTO midwest_mergedroutes_gen50 (ref, network, route_type, geometry)
+INSERT INTO midwest_mergedroutes (ref, network, route_type, geometry)
 SELECT ref, network, type, geometry FROM a;
 
 COMMIT;
 
-CREATE INDEX sidx_midwest_mergedroutes_gen50
-  ON midwest_mergedroutes_gen50
+CREATE INDEX sidx_midwest_mergedroutes
+  ON midwest_mergedroutes
   USING GIST (geometry);
 
 
@@ -48,11 +48,11 @@ CREATE TABLE midwest_mergedroutes_gen50 (
 	id SERIAL PRIMARY KEY,
 	ref VARCHAR,
 	network VARCHAR,
-	route_type VARCHAR,
+	route_type VARCHAR
 );
 
 SELECT AddGeometryColumn('public'::varchar,
-						 'midwest_roadroutes_gen50'::varchar,
+						 'midwest_mergedroutes_gen50'::varchar,
 						 'geometry'::varchar,
 						 3857,
 						 'GEOMETRY'::varchar,
