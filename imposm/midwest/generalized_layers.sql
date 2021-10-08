@@ -269,4 +269,55 @@ CREATE INDEX sidx_midwest_waterways_gen50
   ON midwest_waterways_gen50
   USING GIST (geometry);
   
+-- Points of interest and centroids of points
+
+DROP TABLE IF EXISTS midwest_poi;
+
+CREATE TABLE midwest_poi (
+	id SERIAL PRIMARY KEY,
+	osm_id BIGINT,
+	name VARCHAR,
+	type VARCHAR,
+	class VARCHAR,
+	hstore hstore
+
+);
+
+SELECT AddGeometryColumn('public'::varchar,
+						 'midwest_poi'::varchar,
+						 'geometry'::varchar,
+						 3857,
+						 'POINT'::varchar,
+						 2);
+
+
+BEGIN;
+
+WITH a AS(
+	SELECT   osm_id,
+			 name,
+			 type,
+			 class,
+			 hstore,
+	         geometry
+	FROM     midwest_points_of_interest
+	UNION
+	SELECT   osm_id,
+			 name,
+			 type,
+			 class,
+			 hstore,
+	         st_pointonsurface(geometry) geometry
+	FROM     midwest_areas_of_interest
+)
+
+INSERT INTO midwest_poi (osm_id, name, type, class, hstore, geometry)
+SELECT osm_id, name, type, class, hstore, geometry FROM a;
+
+COMMIT;
+
+CREATE INDEX sidx_midwest_pois
+  ON midwest_poi
+  USING GIST (geometry);
+  
   
