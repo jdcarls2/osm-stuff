@@ -2,7 +2,7 @@ areas:
   area_tags: [building, landuse, leisure, natural, aeroway, "area:highway"]
   linear_tags: [highway, barrier]
 tags:
-  include: [surface, width, lanes, wheelchair, incline, smoothness, species, genus, taxon, opening_hours, phone, "addr:housenumber", "addr:street", "addr:city"]
+  include: ["beacon:type", surface, width, lanes, wheelchair, incline, smoothness, species, genus, taxon, opening_hours, phone, "addr:housenumber", "addr:street", "addr:city"]
 tables:
   roads:
     columns:
@@ -382,6 +382,26 @@ tables:
       tourism: [__any__]
       shop: [__any__]
     type: point
+  areas_of_interest:
+    columns:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - name: type
+      type: mapping_value
+    - name: class
+      type: mapping_key
+    - name: hstore
+      type: hstore_tags
+    mapping:
+      amenity: [__any__]
+      tourism: [__any__]
+      shop: [__any__]
+    type: polygon
   places:
     columns:
     - name: osm_id
@@ -494,7 +514,101 @@ tables:
         building: ["no"]
     mapping:
       building: [__any__]
+      "building:part": [__any__]
     type: polygon
+  indoor-areas:
+    columns:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: ref
+      name: ref
+      type: string
+    - key: capacity
+      name: capacity
+      type: integer
+    - key: room
+      name: room_type
+      type: string
+    - key: level
+      name: level
+      type: integer
+    - name: type
+      type: mapping_value
+    filters:
+      reject:
+        indoor: ["no"]
+    mapping:
+      indoor: [__any__]
+    type: polygon
+  indoor-lines:
+    columns:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: ref
+      name: ref
+      type: string
+    - key: level
+      name: level
+      type: integer
+    - name: class
+      type: mapping_key
+    - name: type
+      type: mapping_value
+    filters:
+      require:
+        indoor: [__any__]
+      reject:
+        indoor: ["no"]
+    mapping:
+      indoor:
+      - wall
+      - corridor
+      highway:
+      - corridor
+      - steps
+    type: linestring
+  indoor-points:
+    columns:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: ref
+      name: ref
+      type: string
+    - key: level
+      name: level
+      type: integer
+    - name: hstore
+      type: hstore_tags
+    - name: class
+      type: mapping_key
+    - name: type
+      type: mapping_value
+    filters:
+      require:
+        indoor: [__any__]
+      reject:
+        indoor: ["no"]
+    mapping:
+      indoor:
+      - door
+      door: [__any__]
+      indoormark: [__any__]
+    type: point
   landusages:
     columns:
     - name: osm_id
