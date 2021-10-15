@@ -319,5 +319,25 @@ COMMIT;
 CREATE INDEX sidx_midwest_pois
   ON midwest_poi
   USING GIST (geometry);
-  
-  
+
+
+-- Add array column for indoor levels
+ALTER TABLE midwest_indoor_areas 
+ADD COLUMN level_arr INTEGER[];
+
+ALTER TABLE midwest_indoor_lines 
+ADD COLUMN level_arr INTEGER[];
+
+ALTER TABLE midwest_indoor_points
+ADD COLUMN level_arr INTEGER[];
+
+-- Populate level arrays
+UPDATE midwest_indoor_areas
+SET level_arr = STRING_TO_ARRAY(level, ';');
+
+UPDATE midwest_indoor_lines
+SET level_arr = STRING_TO_ARRAY(level, ';');
+
+UPDATE midwest_indoor_points
+SET level_arr = STRING_TO_ARRAY(level, ';');
+
