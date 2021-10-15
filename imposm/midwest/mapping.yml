@@ -60,7 +60,7 @@ tables:
       - residential
       - raceway
     type: linestring
-  road-areas:
+  road_areas:
     columns:
     - name: osm_id
       type: id
@@ -516,7 +516,7 @@ tables:
       building: [__any__]
       "building:part": [__any__]
     type: polygon
-  indoor-areas:
+  indoor_areas:
     columns:
     - name: osm_id
       type: id
@@ -536,7 +536,7 @@ tables:
       type: string
     - key: level
       name: level
-      type: integer
+      type: string
     - name: type
       type: mapping_value
     filters:
@@ -545,7 +545,7 @@ tables:
     mapping:
       indoor: [__any__]
     type: polygon
-  indoor-lines:
+  indoor_lines:
     columns:
     - name: osm_id
       type: id
@@ -577,7 +577,7 @@ tables:
       - corridor
       - steps
     type: linestring
-  indoor-points:
+  indoor_points:
     columns:
     - name: osm_id
       type: id
