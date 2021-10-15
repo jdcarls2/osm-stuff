@@ -559,7 +559,7 @@ tables:
       type: string
     - key: level
       name: level
-      type: integer
+      type: string
     - name: class
       type: mapping_key
     - name: type
