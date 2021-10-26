@@ -2,7 +2,7 @@ areas:
   area_tags: [building, landuse, leisure, natural, aeroway, "area:highway"]
   linear_tags: [highway, barrier]
 tags:
-  include: ["beacon:type", surface, width, lanes, wheelchair, incline, smoothness, species, genus, taxon, opening_hours, phone, "addr:housenumber", "addr:street", "addr:city"]
+  include: ["beacon:type", surface, width, lanes, wheelchair, incline, smoothness, species, genus, taxon, door, entrance, opening_hours, phone, "addr:housenumber", "addr:street", "addr:city"]
 tables:
   roads:
     columns:
@@ -381,6 +381,7 @@ tables:
       amenity: [__any__]
       tourism: [__any__]
       shop: [__any__]
+      emergency: [__any__]
     type: point
   areas_of_interest:
     columns:
@@ -401,6 +402,7 @@ tables:
       amenity: [__any__]
       tourism: [__any__]
       shop: [__any__]
+      emergency: [__any__]
     type: polygon
   places:
     columns:
