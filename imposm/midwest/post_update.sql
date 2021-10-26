@@ -320,6 +320,18 @@ CREATE INDEX sidx_midwest_pois
   ON midwest_poi
   USING GIST (geometry);
 
+
+-- Create level_arr fields
+ALTER TABLE public.midwest_indoor_areas
+    ADD COLUMN level_arr character varying[];
+
+ALTER TABLE public.midwest_indoor_lines
+    ADD COLUMN level_arr character varying[];
+
+ALTER TABLE public.midwest_indoor_points
+    ADD COLUMN level_arr character varying[];
+
+
 -- Populate level arrays
 UPDATE midwest_indoor_areas
 SET level_arr = STRING_TO_ARRAY(level::TEXT, ';')::VARCHAR[];
