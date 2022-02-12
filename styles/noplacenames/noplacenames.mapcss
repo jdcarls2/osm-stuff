@@ -1,0 +1,12 @@
+meta 
+{
+    title: "Nameless Places";
+    description: "This JOSM style will just straight up kill any place name labels, because that's a thing you want?";
+    version: "0.1";
+    author: "Josh Carlson";
+}
+
+node[place]
+{
+    font-size: 0;
+}
