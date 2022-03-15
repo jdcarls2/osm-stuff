@@ -1,0 +1,12 @@
+meta 
+{
+    title: "Extra Things";
+    description: "Don't forget the shrubberies!";
+    version: "0.1";
+    author: "Josh Carlson";
+}
+
+way[natural=shrubbery]
+{
+    fill-color: #91C956;
+}

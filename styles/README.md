@@ -9,3 +9,7 @@ If any of these get developed fully, then I will move them into their own repo, 
 Someone on Discord asked: Can I just remove the labels from place nodes? *Yes!*
 
 ![noplacenames](./noplacenames/noplacenames.gif)
+
+# extra-things
+
+There are a bunch of tags that aren't in the "standard" JOSM set, but I consider useful. Like `natural=shrubbery`!
