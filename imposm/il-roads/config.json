@@ -3,6 +3,8 @@
     "connection": "postgis://osm:osm@localhost/osm?prefix=il-roads",
     "mapping": "../il-roads/mapping.yml",
     "diffdir": "../il-roads/imposm_diff",
-    "replication_url": "https://download.geofabrik.de/north-america/us-illinois-updates/",
-    "replication_interval": "24h"
+    "replication_url": "https://planet.osm.org/replication/minute/",
+    "replication_interval": "5m",
+    "limitto": "../il-roads/il.geojson",
+    "srid": 3857
 }
