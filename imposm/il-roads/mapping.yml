@@ -27,7 +27,7 @@ tables:
       - living_street
       - residential
     type: linestring
-  route_members:
+  routes:
     type: relation_member
     columns:
     - name: osm_id
@@ -62,3 +62,14 @@ tables:
     relation_types: [route]
     mapping:
       route: [road]
+generalized_tables:
+  roads_gen0:
+    source: roads_gen1
+    tolerance: 200.0
+  roads_gen1:
+    source: roads
+    sql_filter:
+      type IN (
+        'motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',
+        'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link')
+    tolerance: 50.0
