@@ -1,0 +1,85 @@
+
+meta 
+{
+    title: "Surface";
+    description: "Visualize surface=* of objects";
+    version: "1.0";
+    author: "Josh Carlson";
+    link: "";
+}
+
+canvas
+{
+    fill-color: white;
+}
+
+node
+{
+    symbol-shape: square;
+    symbol-size: 5;
+    symbol-stroke-color: #b8c95c;
+}
+
+node:connection
+{
+    symbol-shape: circle;
+    symbol-size: 10;
+    symbol-stroke-color: #d8fc10;
+    symbol-stroke-width: 2;
+}
+
+way[highway]
+{
+    width: 3;
+    color: #ff00d4;
+}
+
+*[highway][surface=asphalt]
+{
+    color: black;
+}
+
+*["area:highway"][surface=asphalt]
+{
+    fill-color: black;
+}
+
+*[highway][surface=gravel]
+{
+    color: lightgrey;
+}
+
+*["area:highway"][surface=gravel]
+{
+    fill-color: lightgrey;
+}
+
+*[highway][surface=concrete]
+{
+    color: slategray
+}
+
+*["area:highway"][surface=concrete]
+{
+    fill-color: slategrey;
+}
+
+way[highway][surface=~/unpaved|dirt|earth|ground|mud/]
+{
+    color: #FFB0B0;
+}
+
+way[highway][surface=wood]
+{
+    color: #FFFF80;
+}
+
+way[highway][surface=grass]
+{
+    color: #80FF80;
+}
+
+*[!surface]
+{
+    opacity: 0.5;
+}
