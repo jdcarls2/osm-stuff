@@ -2,7 +2,7 @@ areas:
   area_tags: [building, landuse, leisure, natural, aeroway, "area:highway"]
   linear_tags: [highway, barrier]
 tags:
-  include: ["beacon:type", surface, width, lanes, wheelchair, incline, smoothness, species, genus, taxon, door, entrance, opening_hours, phone, "addr:housenumber", "addr:street", "addr:city"]
+  include: [surface, width, lanes, wheelchair, incline, smoothness, species, genus, taxon, door, entrance, opening_hours, phone, "addr:housenumber", "addr:street", "addr:city"]
 tables:
   roads:
     columns:
@@ -72,7 +72,7 @@ tables:
       name: junction
       type: string
     mapping:
-      highway: [__any__]
+      "area:highway": [__any__]
     type:
       polygon
   rail:
@@ -646,6 +646,7 @@ tables:
       - wetland
       - heath
       - grassland
+      - shrubbery
       place:
       - island
       tourism:
