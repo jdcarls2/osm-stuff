@@ -71,6 +71,9 @@ tables:
     - key: junction
       name: junction
       type: string
+    - key: surface
+      type: string
+      name: surface
     mapping:
       "area:highway": [__any__]
     type:
