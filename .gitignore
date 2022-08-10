@@ -6,5 +6,6 @@ imposm/example.yml
 **/imposm_diff
 imposm/imposm/
 .vscode/settings.json
+*.pbf
 **/mkgmap
 **/splitter
