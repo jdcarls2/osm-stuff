@@ -1,0 +1,42 @@
+areas:
+  area_tags: [building, landuse, leisure, natural, aeroway, "area:highway"]
+  linear_tags: [highway, barrier]
+tags:
+  load_all: true
+  exclude: [created_by, source, "tiger:*"]
+tables:
+  nodes:
+    mapping:
+      __any__: [__any__]
+    columns:
+    - name: tags
+      type: hstore_tags
+    type: point
+  ways:
+    mapping:
+      __any__: [__any__]
+    columns:
+    - name: tags
+      type: hstore_tags
+    type: linestring
+  areas:
+    mapping:
+      __any__: [__any__]
+    columns:
+    - name: tags
+      type: hstore_tags
+    type: polygon
+  relations:
+    mapping:
+      __any__: [__any__]
+    columns:
+    - name: tags
+      type: hstore_tags
+    type: relation
+  relation_members:
+    mapping:
+      __any__: [__any__]
+    columns:
+    - name: tags
+      type: hstore_tags
+    type: relation_member
