@@ -61,6 +61,8 @@ tables:
       type: member_role
     - name: geom_type
       type: member_type
+    - name: the_geom
+      type: geometry
     - name: tags
       type: hstore_tags
     type: relation_member
