@@ -9,6 +9,10 @@ tables:
     mapping:
       __any__: [__any__]
     columns:
+    - name: osm_id
+      type: id
+    - name: the_geom
+      type: geometry
     - name: tags
       type: hstore_tags
     type: point
@@ -16,6 +20,10 @@ tables:
     mapping:
       __any__: [__any__]
     columns:
+    - name: osm_id
+      type: id
+    - name: the_geom
+      type: geometry
     - name: tags
       type: hstore_tags
     type: linestring
@@ -23,6 +31,10 @@ tables:
     mapping:
       __any__: [__any__]
     columns:
+    - name: osm_id
+      type: id
+    - name: the_geom
+      type: geometry
     - name: tags
       type: hstore_tags
     type: polygon
@@ -30,6 +42,8 @@ tables:
     mapping:
       __any__: [__any__]
     columns:
+    - name: osm_id
+      type: id
     - name: tags
       type: hstore_tags
     type: relation
@@ -37,6 +51,16 @@ tables:
     mapping:
       __any__: [__any__]
     columns:
+    - name: osm_id
+      type: id
+    - name: member_id
+      type: member_id
+    - name: index
+      type: member_index
+    - name: role
+      type: member_role
+    - name: geom_type
+      type: member_type
     - name: tags
       type: hstore_tags
     type: relation_member
