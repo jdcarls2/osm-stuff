@@ -1,9 +1,0 @@
-{
-    "cachedir": "../kendall-all/imposm_cache",
-    "connection": "postgis://osm:osm@localhost/osm?prefix=kendall",
-    "mapping": "../kendall-all/mapping.yml",
-    "diffdir": "../kendall-all/imposm_diff",
-    "replication_url": "https://planet.osm.org/replication/minute/",
-    "replication_interval": "5m",
-    "limitto": "../kendall-all/kendall.geojson"
-}

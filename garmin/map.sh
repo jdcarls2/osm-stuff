@@ -1,1 +1,0 @@
-java -jar mkgmap.jar data.osm --output-dir=./output --country-name="United States" --country-abbr=USA --region-name="Midwest" --road-name-config=./examples/roadNameConfig.txt 

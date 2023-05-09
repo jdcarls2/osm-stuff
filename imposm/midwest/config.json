@@ -1,9 +1,0 @@
-{
-    "cachedir": "../midwest/imposm_cache",
-    "connection": "postgis://osm:osm@localhost/osm?prefix=midwest",
-    "mapping": "../midwest/mapping.yml",
-    "diffdir": "../midwest/imposm_diff",
-    "replication_url": "https://planet.osm.org/replication/minute/",
-    "replication_interval": "5m",
-    "limitto": "../midwest/midwest.geojson"
-}

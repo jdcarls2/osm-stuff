@@ -79,6 +79,11 @@ way[highway][surface=grass]
     color: #80FF80;
 }
 
+*["area:highway"][surface=paving_stones]
+{
+    fill-color: #7C3034;
+}
+
 *[!surface]
 {
     opacity: 0.5;

@@ -1,0 +1,68 @@
+
+meta 
+{
+    title: "Operator";
+    description: "Visualize operator=* of objects, mostly for in/around Kendall County, IL";
+    version: "1.0";
+    author: "Josh Carlson";
+    link: "";
+}
+
+node
+{
+    symbol-size: 1;
+}
+
+relation[boundary]
+{
+    fill-color:#ffffff;
+}
+
+way["right_venu"]
+{
+    text: "right_venu";
+    font-size: 12;
+    text-offset: -10;
+}
+
+way["left_venue"]
+{
+    text: "left_venue";
+    font-size: 12;
+    text-offset: 10;
+}
+
+way[highway]
+{
+    width: 3;
+    color: #ff00d4;
+}
+
+way[highway][operator="Kendall County Highway Department"]
+{
+    width: 5;
+    color: orange;
+}
+
+way[highway][operator="Illinois Department of Transportation"]
+{
+    width: 5;
+    color: white;
+}
+
+way[highway][operator=~/.*City.*|.*Village.*/]
+{
+    width: 3;
+    color: blue;
+}
+
+way[highway][operator=~/.*Township.*/]
+{
+    color: green;
+}
+
+*[highway][!operator]
+{
+    opacity: 0.5;
+    color: magenta;
+}
